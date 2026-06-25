@@ -1,259 +1,232 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tozawa Trading | 設立準備中 | 代表 兎澤 瑛太郎</title>
-    <style>
-        :root {
-            --gold: #b39359;
-            --black: #000000;
-            --dark-gray: #1a1a1a;
-            --white: #ffffff;
-            --light-bg: #f4f4f4;
-        }
-
-        body {
-            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
-            margin: 0;
-            color: var(--dark-gray);
-            background-color: var(--white);
-            line-height: 1.8;
-        }
-
-        /* ヘッダー */
-        header {
-            background-color: var(--black);
-            color: var(--white);
-            padding: 120px 20px;
-            text-align: center;
-        }
-
-        .logo h1 {
-            font-size: clamp(2rem, 8vw, 3.5rem);
-            letter-spacing: 10px;
-            margin: 0;
-            font-weight: 200;
-            text-transform: uppercase;
-        }
-
-        .tagline {
-            color: var(--gold);
-            font-size: 1rem;
-            margin-top: 20px;
-            letter-spacing: 5px;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 80px 20px;
-        }
-
-        h2.section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 50px;
-            letter-spacing: 2px;
-        }
-
-        h2.section-title::after {
-            content: "";
-            display: block;
-            width: 50px;
-            height: 2px;
-            background: var(--gold);
-            margin: 15px auto;
-        }
-
-        /* 代表メッセージ */
-        .message-box {
-            background: var(--light-bg);
-            padding: 50px;
-            border-radius: 10px;
-            margin-bottom: 80px;
-            border: 1px solid #ddd;
-        }
-
-        .message-box p {
-            font-size: 1.1rem;
-            margin-bottom: 25px;
-        }
-
-        .signature {
-            text-align: right;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        /* 主力商品 */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 80px;
-        }
-
-        .product-card {
-            border: 1px solid #eee;
-            padding: 30px;
-            text-align: center;
-        }
-
-        .product-card h3 {
-            color: var(--gold);
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
-        }
-
-        /* FLOW */
-        .flow-container {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin-bottom: 80px;
-            text-align: center;
-        }
-
-        .flow-step {
-            flex: 1;
-            min-width: 150px;
-            padding: 20px;
-            position: relative;
-        }
-
-        .flow-step:not(:last-child)::after {
-            content: "→";
-            position: absolute;
-            right: -10px;
-            top: 50%;
-            color: var(--gold);
-            font-size: 1.5rem;
-        }
-
-        /* お問い合わせ */
-        .contact-area {
-            background: var(--black);
-            color: var(--white);
-            padding: 80px 20px;
-            text-align: center;
-            border-radius: 10px;
-        }
-
-        .contact-btn {
-            display: inline-block;
-            background: var(--gold);
-            color: white;
-            padding: 20px 60px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 30px;
-            border-radius: 5px;
-        }
-
-        /* 会社情報テーブル */
-        .profile-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 50px;
-        }
-
-        .profile-table th, .profile-table td {
-            padding: 20px;
-            border-bottom: 1px solid #eee;
-            text-align: left;
-        }
-
-        .profile-table th { width: 30%; background: #fafafa; }
-
-        footer {
-            background: var(--black);
-            color: #666;
-            text-align: center;
-            padding: 60px 20px;
-            font-size: 0.8rem;
-        }
-
-        @media (max-width: 768px) {
-            .flow-step::after { content: "↓"; right: auto; bottom: -10px; left: 50%; transform: translateX(-50%); top: auto; }
-            .message-box { padding: 30px; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>株式会社Tozawa Trading | Premium Japanese Spirits to the World</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <div class="logo">
-        <h1>Tozawa Trading</h1>
-        <p class="tagline">Traditional Heritage & Global Vision</p>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo">
+        <a href="#home">
+          <span class="logo-text">TOZAWA TRADING</span>
+        </a>
+      </h1>
+      <nav class="global-nav">
+        <ul>
+          <li><a href="#concept">Concept</a></li>
+          <li><a href="#greeting">Message</a></li>
+          <li><a href="#strengths">Strengths</a></li>
+          <li><a href="#packaging">Quality</a></li>
+          <li><a href="#company">Company</a></li>
+        </ul>
+      </nav>
     </div>
-</header>
+  </header>
 
-<div class="container">
-    
-    <section>
-        <h2 class="section-title">MESSAGE</h2>
-        <div class="message-box">
-            <p>鹿児島の焼酎を世界に広げて、世界中の人にその良さをわかって欲しい。それが私の原動力です。</p>
-            <p>焼酎の種類が多くてどれが美味しいか分からない方、買いたいけれど一歩が踏み出せない方のために、私たちは「自分に合った一杯を、最も簡単に、最も早く見つけられる」サービスをECサイトを通じて提供します。</p>
-            <p>伝統ある日本の味を、現代のスピード感で世界へ。お酒を通じて新しい価値と喜びを創造します。</p>
-            <div class="signature">代表 兎澤 瑛太郎（設立準備中）</div>
+  <section class="hero" id="home">
+    <div class="hero-slider">
+      <div class="slide img1"></div>
+      <div class="slide img2"></div>
+      <div class="slide img3"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-lead-en">JAPANESE LUXURY FOR THE WORLD</p>
+      <h2 class="hero-title">日本の美酒を、<br><span class="gold-text">世界のあなたへ。</span></h2>
+      <div class="scroll-down"><span>SCROLL</span></div>
+    </div>
+  </section>
+
+  <section class="section concept-section" id="concept">
+    <div class="container">
+      <div class="concept-wrapper">
+        <div class="bg-watermark">CONCEPT</div>
+        <p class="concept-en">TRADITION & INNOVATION</p>
+        <h3 class="concept-title">時を越え、国境を越える、<br>妥協なき一滴。</h3>
+        <p class="concept-lead">
+          鹿児島の地が育んだ、伝統の本格焼酎。<br>
+          それは、何世代にもわたり磨き上げられた職人たちの情熱の結晶です。<br>
+          私たちは、その一滴に込められた物語と、日本が誇る究極の美学を世界へシームレスに繋ぎます。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ceo-greeting" id="greeting">
+    <div class="container">
+      <div class="greeting-layout">
+        <div class="greeting-img-box">
+          <img src="ceo.jpg" alt="代表取締役 兎澤瑛太郎" class="sub-fade">
+          <div class="img-border"></div>
         </div>
-    </section>
-
-    <section>
-        <h2 class="section-title">CORE PRODUCTS</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <h3>白玉醸造「魔王」</h3>
-                <p>幻の銘酒として知られる名作。その豊潤な香りと、卓越したキレの良さを世界へ繋ぎます。</p>
-            </div>
-            <div class="product-card">
-                <h3>八千代伝酒造「八千代伝」</h3>
-                <p>伝統の技が光る逸品。こだわりの原料が生み出す深い味わいを、皆様の元へ最速でお届けします。</p>
-            </div>
+        <div class="greeting-text-box">
+          <div class="section-tag">MESSAGE</div>
+          <h3 class="greeting-heading">国境を越えて、<br>最高の一杯を届けるために。</h3>
+          <p class="greeting-paragraph">鹿児島の豊かな自然と伝統が育んだ本格焼酎をはじめ、日本が世界に誇る美酒の数々。私たちはその魅力を、単なる「お酒」としてではなく、日本の「文化」として世界中の皆様にお届けしたいと考えています。</p>
+          <p class="greeting-paragraph">株式会社Tozawa Tradingは、一本一本のボトルに込められた蔵元の情熱とこだわりを尊重し、最高の状態でお客様のお手元までお届けすることをお約束いたします。</p>
+          
+          <div class="ceo-signature">
+            <p class="company-title">株式会社Tozawa Trading</p>
+            <p class="job-title">代表取締役</p>
+            <h4 class="signature-name">兎澤 瑛太郎</h4>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section>
-        <h2 class="section-title">BUSINESS FLOW</h2>
-        <div class="flow-container">
-            <div class="flow-step"><h4>お問い合わせ</h4></div>
-            <div class="flow-step"><h4>ご提案</h4></div>
-            <div class="flow-step"><h4>ご契約</h4></div>
-            <div class="flow-step"><h4>納品</h4></div>
+  <section class="section strengths-section" id="strengths">
+    <div class="container">
+      <div class="section-header-center">
+        <p class="en-title">OUR STRENGTHS</p>
+        <h2 class="ja-title">Tozawa Tradingの強み</h2>
+      </div>
+      
+      <div class="strengths-grid">
+        <div class="strength-card">
+          <div class="card-num">01</div>
+          <h3>厳選された最高峰の銘柄</h3>
+          <p>鹿児島が世界に誇るプレミアムな本格焼酎を中心に、世界市場で高い評価を受ける美酒のみを独自のネットワークで厳選調達します。</p>
         </div>
-    </section>
+        <div class="strength-card">
+          <div class="card-num">02</div>
+          <h3>徹底した品質・温度管理</h3>
+          <p>デリケートな味わいを損なうことなく、蔵元が仕上げたそのままのクオリティを維持するため、完璧なトレーサビリティと厳重な環境管理を徹底しています。</p>
+        </div>
+        <div class="strength-card">
+          <div class="card-num">03</div>
+          <h3>グローバルな流通網</h3>
+          <p>複雑な輸出入プロセスや現地の規制をクリアし、海外のプレミアムな顧客層や高級飲食店へ直接、安全かつ迅速にお届けする独自のEC・流通体制を構築しています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section class="contact-area">
-        <h2 style="color:white">CONTACT</h2>
-        <p>「自分に合った焼酎を知りたい」「将来的な取引を検討したい」など<br>お気軽にご相談ください。</p>
-        <p style="margin-top:20px; font-size:1.2rem; color:var(--gold);">Email: eitarotozawa@gmail.com</p>
-        <a href="mailto:eitarotozawa@gmail.com" class="contact-btn">メールで相談する</a>
-    </section>
+  <section class="section packaging-gallery" id="packaging">
+    <div class="container">
+      <div class="section-header-center">
+        <p class="en-title">QUALITY & HOSPITALITY</p>
+        <h2 class="ja-title">包装・梱包へのこだわり</h2>
+        <p class="sub-desc">お届けするその瞬間から、特別な体験が始まります。</p>
+      </div>
+      
+      <div class="gallery-modern-grid">
+        <div class="gallery-card-modern">
+          <div class="gallery-img-wrapper">
+            <img src="box.jpg" alt="オリジナル化粧箱">
+          </div>
+          <div class="gallery-info">
+            <span class="gallery-tag">BOX</span>
+            <h4>オリジナル化粧箱</h4>
+            <p>ボトルの安全性を完璧に守りつつ、手にした瞬間に高揚感を覚える、洗練された黒を基調とした専用箱でお届けします。</p>
+          </div>
+        </div>
 
-    <section style="margin-top:100px;">
-        <h2 class="section-title">COMPANY INFO</h2>
-        <table class="profile-table">
-            <tr><th>屋号</th><td>Tozawa Trading</td></tr>
-            <tr><th>代表者</th><td>兎澤 瑛太郎（株式会社設立準備中）</td></tr>
-            <tr><th>所在地</th><td>〒891-2115 鹿児島県垂水市柊原3456</td></tr>
+        <div class="gallery-card-modern">
+          <div class="gallery-img-wrapper">
+            <img src="wrapping.jpg" alt="丁寧な和紙包装">
+          </div>
+          <div class="gallery-info">
+            <span class="gallery-tag">WRAPPING</span>
+            <h4>丁寧な和紙包装</h4>
+            <p>日本の美意識が宿る上質な和紙や格式高い水引を使用。海外のVIPへのギフトとしてもそのまま重宝される美しいラッピング。</p>
+          </div>
+        </div>
+
+        <div class="gallery-card-modern">
+          <div class="gallery-img-wrapper">
+            <img src="shipping.jpg" alt="安全な梱包資材">
+          </div>
+          <div class="gallery-info">
+            <span class="gallery-tag">SHIPPING</span>
+            <h4>安全な梱包資材</h4>
+            <p>長距離の国際輸送にも耐えうる頑丈な資材を厳選。一本一本に真心を込め、厳重なチェック体制のもとで国内・海外へ発送します。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section company-profile" id="company">
+    <div class="container">
+      <div class="profile-layout">
+        <div class="profile-left">
+          <p class="profile-en">OVERSEAS TRADING</p>
+          <h2 class="profile-main-title">Company<br>Profile</h2>
+          <div class="gold-bar"></div>
+        </div>
+        
+        <div class="profile-right">
+          <table class="modern-table">
             <tr>
-                <th>免許情報</th>
-                <td>
-                    ・一般酒類小売業免許（申請準備中）<br>
-                    ・通信販売酒類小売業免許（申請準備中）<br>
-                    ・輸出入酒類卸売業免許（申請準備中）
-                </td>
+              <th>会社名</th>
+              <td>株式会社Tozawa Trading <span class="en-sub-text">/ Tozawa Trading Co., Ltd.</span></td>
             </tr>
-        </table>
-    </section>
+            <tr>
+              <th>所在地</th>
+              <td>〒891-1402 鹿児島県垂水市柊原3456番地2階</td>
+            </tr>
+            <tr>
+              <th>代表取締役</th>
+              <td>兎澤 瑛太郎</td>
+            </tr>
+            <tr>
+              <th>設立年月日</th>
+              <td>2026年7月1日</td>
+            </tr>
+            <tr>
+              <th>事業内容</th>
+              <td>
+                <ul class="table-list">
+                  <li>酒類の小売業及び通信販売業</li>
+                  <li>食品及び飲料 of 販売並びに通信販売業</li>
+                  <li>各種商品の卸売業及び輸出入業</li>
+                  <li>不動産の売買、交換、賃貸及びその仲介並びに所有、管理及び利用</li>
+                  <li>コンピュータシステム、ウェブサイト及びアプリケーションの企画、設計、開発、制作、販売、運用及び保守</li>
+                  <li>インターネットを利用した各種商品の販売、広告、制作、運営及び管理</li>
+                  <li>経営コンサルティング業</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>免許・許可</th>
+              <td>
+                <span class="status-badge">申請準備中</span>
+                <ul class="table-list sub-list">
+                  <li>一般酒類小売業免許</li>
+                  <li>通信販売酒類小売業免許</li>
+                  <li>輸出入酒類卸売業免許</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>コンタクト</th>
+              <td>
+                <span class="contact-item"><span>TEL:</span> <a href="tel:09023910071">090-2391-0071</a></span>
+                <span class="contact-item"><span>MAIL:</span> <a href="mailto:eitarotozawa@gmail.com">eitarotozawa@gmail.com</a></span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</div>
-
-<footer>
-    <p>&copy; 2026 Tozawa Trading. All Rights Reserved.</p>
-</footer>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p class="footer-logo">TOZAWA TRADING</p>
+        <p class="copyright">&copy; 2026 Tozawa Trading Co., Ltd. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
