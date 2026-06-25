@@ -1,0 +1,800 @@
+@charset "UTF-8";
+
+/* =========================================
+   共通変数とリセット
+========================================= */
+:root {
+  --bg-deep: #0e0e10;
+  --bg-pure: #ffffff;
+  --bg-soft: #fcfbfa;
+  --text-dark: #1a1a1c;
+  --text-muted: #555558;
+  --text-light: #8e8e93;
+  --color-gold: #caa85c;
+  --color-gold-light: #e4d3a2;
+  --font-serif: 'Marcellus', 'Noto Serif JP', serif;
+  --font-sans: 'Noto Sans JP', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--text-dark);
+  background-color: var(--bg-pure);
+  line-height: 1.85;
+  letter-spacing: 0.06em;
+  -webkit-font-smoothing: antialiased;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+}
+
+/* =========================================
+   共通コンポーネント
+========================================= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.section {
+  padding: 140px 0;
+  position: relative;
+}
+
+.section-header-center {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.section-header-center .en-title {
+  font-family: 'Marcellus', serif;
+  font-size: 0.95rem;
+  color: var(--color-gold);
+  letter-spacing: 0.3em;
+  margin: 0 0 10px 0;
+}
+
+.section-header-center .ja-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.section-header-center .sub-desc {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  margin-top: 15px;
+}
+
+/* =========================================
+   ヘッダー
+========================================= */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: linear-gradient(to bottom, rgba(14,14,16,0.8) 0%, rgba(14,14,16,0) 100%);
+  transition: all 0.5s ease;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 40px;
+  transition: all 0.4s ease;
+}
+
+.logo-text {
+  font-family: 'Marcellus', serif;
+  font-size: 1.4rem;
+  color: #ffffff;
+  letter-spacing: 0.2em;
+  font-weight: 400;
+}
+
+.global-nav ul {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.global-nav a {
+  font-family: 'Marcellus', serif;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 5px 0;
+}
+
+.global-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-gold);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.global-nav a:hover {
+  color: #ffffff;
+}
+
+.global-nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* =========================================
+   ヒーローセクション（★背景写真を hero1.jpg 〜 hero3.jpg にセット済）
+========================================= */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.hero-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.05);
+  animation: cinemaFade 18s infinite ease-in-out;
+}
+
+.slide.img1 {
+  background-image: url('hero1.jpg');
+  animation-delay: 0s;
+}
+.slide.img2 {
+  background-image: url('hero2.jpg');
+  animation-delay: 6s;
+}
+.slide.img3 {
+  background-image: url('hero3.jpg');
+  animation-delay: 12s;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(14,14,16,0.65) 100%);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+}
+
+.hero-lead-en {
+  font-family: 'Marcellus', serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.4em;
+  color: var(--color-gold);
+  margin-bottom: 25px;
+}
+
+.hero-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 4.2rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  animation: fadeInUp 1.2s ease-out;
+}
+
+.gold-text {
+  color: var(--color-gold-light);
+  background: linear-gradient(to right, var(--color-gold-light), #fff, var(--color-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  font-family: 'Marcellus', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.6);
+}
+
+.scroll-down span::after {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  width: 1px;
+  height: 30px;
+  background-color: var(--color-gold);
+  animation: lineScroll 2s infinite ease-in-out;
+}
+
+/* =========================================
+   コンセプト
+========================================= */
+.concept-section {
+  background-color: var(--bg-soft);
+  text-align: center;
+  overflow: hidden;
+}
+
+.concept-wrapper {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.bg-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Marcellus', serif;
+  font-size: 7.5rem;
+  font-weight: 700;
+  color: rgba(202, 168, 92, 0.04);
+  letter-spacing: 0.2em;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.concept-en {
+  font-family: 'Marcellus', serif;
+  font-size: 0.95rem;
+  color: var(--color-gold);
+  letter-spacing: 0.3em;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.concept-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--text-dark);
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.concept-lead {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 2.2;
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================
+   代表挨拶
+========================================= */
+.greeting-layout {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  position: relative;
+}
+
+.greeting-img-box {
+  flex: 1;
+  position: relative;
+  padding-right: 30px;
+  padding-bottom: 30px;
+}
+
+.greeting-img-box img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+}
+
+.img-border {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--color-gold);
+  z-index: 1;
+}
+
+.greeting-text-box {
+  flex: 1.2;
+  position: relative;
+  z-index: 3;
+  background: #ffffff;
+  padding: 40px 0 40px 40px;
+  margin-left: -80px;
+}
+
+.section-tag {
+  font-family: 'Marcellus', serif;
+  color: var(--color-gold);
+  letter-spacing: 0.2em;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.greeting-heading {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 2.4rem;
+  line-height: 1.5;
+  font-weight: 500;
+  color: var(--text-dark);
+  margin-top: 0;
+  margin-bottom: 35px;
+}
+
+.greeting-paragraph {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 25px;
+}
+
+.ceo-signature {
+  margin-top: 50px;
+  border-top: 1px solid #eaeaea;
+  padding-top: 30px;
+}
+
+.ceo-signature .company-title {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.ceo-signature .job-title {
+  font-size: 0.85rem;
+  color: var(--color-gold);
+  margin: 0;
+  letter-spacing: 0.1em;
+}
+
+.ceo-signature .signature-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 10px 0 0 0;
+  color: var(--text-dark);
+}
+
+/* =========================================
+   当社の強み
+========================================= */
+.strengths-section {
+  background-color: var(--bg-deep);
+  color: #ffffff;
+}
+
+.strengths-section .ja-title {
+  color: #ffffff;
+}
+
+.strengths-grid {
+  display: flex;
+  gap: 40px;
+}
+
+.strength-card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 50px 40px;
+  border-radius: 2px;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+}
+
+.strength-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--color-gold);
+}
+
+.card-num {
+  font-family: 'Marcellus', serif;
+  font-size: 2.5rem;
+  color: var(--color-gold);
+  opacity: 0.4;
+  line-height: 1;
+  margin-bottom: 25px;
+}
+
+.strength-card h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.strength-card p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.8;
+}
+
+/* =========================================
+   品質・パッケージ
+========================================= */
+.packaging-gallery {
+  background-color: var(--bg-soft);
+}
+
+.gallery-modern-grid {
+  display: flex;
+  gap: 30px;
+}
+
+.gallery-card-modern {
+  flex: 1;
+  background: #ffffff;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.04);
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.gallery-img-wrapper {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.gallery-card-modern:hover .gallery-img-wrapper img {
+  transform: scale(1.08);
+}
+
+.gallery-card-modern:hover {
+  box-shadow: 0 30px 60px rgba(202, 168, 92, 0.1);
+  transform: translateY(-5px);
+}
+
+.gallery-info {
+  padding: 40px 35px;
+}
+
+.gallery-tag {
+  font-family: 'Marcellus', serif;
+  font-size: 0.8rem;
+  color: var(--color-gold);
+  letter-spacing: 0.15em;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.gallery-info h4 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: var(--text-dark);
+}
+
+.gallery-info p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* =========================================
+   会社概要
+========================================= */
+.profile-layout {
+  display: flex;
+  gap: 80px;
+}
+
+.profile-left {
+  flex: 1;
+}
+
+.profile-en {
+  font-family: 'Marcellus', serif;
+  color: var(--color-gold);
+  font-size: 1rem;
+  letter-spacing: 0.3em;
+  margin-bottom: 15px;
+}
+
+.profile-main-title {
+  font-family: 'Marcellus', 'Noto Serif JP', serif;
+  font-size: 3.2rem;
+  line-height: 1.2;
+  font-weight: 400;
+  margin: 0 0 35px 0;
+  color: var(--text-dark);
+}
+
+.gold-bar {
+  width: 60px;
+  height: 2px;
+  background-color: var(--color-gold);
+}
+
+.profile-right {
+  flex: 2.2;
+}
+
+.modern-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.modern-table tr {
+  border-bottom: 1px solid #eaeaea;
+}
+
+.modern-table th,
+.modern-table td {
+  padding: 30px 0;
+  vertical-align: top;
+}
+
+.modern-table th {
+  width: 25%;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-align: left;
+  font-size: 1.05rem;
+}
+
+.modern-table td {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.en-sub-text {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-family: 'Marcellus', serif;
+}
+
+.table-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.table-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.table-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 4px;
+  height: 1px;
+  background-color: var(--color-gold);
+}
+
+.table-list li:last-child {
+  margin-bottom: 0;
+}
+
+.status-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 12px;
+  background-color: #f4f0e6;
+  color: var(--color-gold);
+  border-radius: 2px;
+  margin-bottom: 15px;
+  letter-spacing: 0.1em;
+}
+
+.sub-list li {
+  color: var(--text-light);
+}
+
+.contact-item {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.contact-item span {
+  font-family: 'Marcellus', serif;
+  color: var(--color-gold);
+  width: 50px;
+  display: inline-block;
+}
+
+.contact-item a {
+  color: var(--text-dark);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.contact-item a:hover {
+  color: var(--color-gold);
+}
+
+/* =========================================
+   フッター
+========================================= */
+.site-footer {
+  background-color: var(--bg-deep);
+  color: #ffffff;
+  padding: 60px 0;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo {
+  font-family: 'Marcellus', serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.2em;
+  margin: 0;
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+/* =========================================
+   レスポンシブ
+========================================= */
+@media (max-width: 992px) {
+  .greeting-layout {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .greeting-text-box {
+    margin-left: 0;
+    padding: 20px 0;
+  }
+  .profile-layout {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .profile-main-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 25px;
+  }
+  .section {
+    padding: 90px 0;
+  }
+  .hero-title {
+    font-size: 2.6rem;
+  }
+  .strengths-grid,
+  .gallery-modern-grid {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .modern-table th, .modern-table td {
+    width: 100%;
+    display: block;
+  }
+  .modern-table tr {
+    display: block;
+    padding: 15px 0;
+  }
+  .modern-table th {
+    padding-bottom: 5px;
+  }
+  .global-nav {
+    display: none;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+}
+
+/* =========================================
+   アニメーション
+========================================= */
+@keyframes cinemaFade {
+  0% { opacity: 0; transform: scale(1.05); }
+  6% { opacity: 1; }
+  33% { opacity: 1; }
+  39% { opacity: 0; transform: scale(1.0); }
+  100% { opacity: 0; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes lineScroll {
+  0% { height: 0; top: 0; opacity: 0; }
+  30% { height: 30px; top: 0; opacity: 1; }
+  60% { height: 0; top: 30px; opacity: 0; }
+  100% { height: 0; top: 0; opacity: 0; }
+}
